@@ -1,0 +1,2 @@
+# AzureFunWorkshop
+Azure Fundamentals Workshop
