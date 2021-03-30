@@ -1,36 +1,38 @@
-﻿#Azure Fudementals: Identity Setup Guide
+﻿# Azure Fundementals: Identity Step - by - Step
 
 **Contents**
 
 <!-- TOC -->
 
-- [Abstract and learning objectives](#abstract-and-learning-objectives)
-- [Overview](#overview)
-- [Solution architecture](#solution-architecture)
-- [Exercise 1: Integrate an Active Directory forest with an Azure Active Directory tenant](#exercise-1-integrate-an-active-directory-forest-with-an-azure-active-directory-tenant)  - [Task 1: Create an Azure Active Directory tenant and activate an EMS E5 trial](#task-1-create-an-azure-active-directory-tenant-and-activate-an-ems-e5-trial)
-  - [Task 2: Create and configure Azure AD users](#task-2-create-and-configure-azure-ad-users)
-  - [Task 3: Purchase a custom domain name](#task-3-purchase-a-custom-domain-name)
-  - [Task 4: Assign a custom domain name to the Contoso Azure AD tenant](#task-4-assign-a-custom-domain-name-to-the-contoso-azure-ad-tenant)
-  - [Task 5: Configure DNS suffix in the Contoso Active Directory forest](#task-5-configure-dns-suffix-in-the-contoso-active-directory-forest)
-  - [Task 6: Install Azure AD Connect](#task-6-install-azure-ad-connect)
-  - [Task 7: Enable Active Directory Recycle Bin](#task-7-enable-active-directory-recycle-bin)
-  - [Task 8: Configure Azure AD Connect attribute-level filtering](#task-8-configure-azure-ad-connect-attribute-level-filtering)
-  - [Task 9: Initiate and verify directory synchronization](#task-9-initiate-and-verify-directory-synchronization)
-  - [Task 10: Configure Hybrid Azure AD join](#task-10-configure-hybrid-azure-ad-join)
-  - [Task 11: Perform Hybrid Azure AD join](#task-11-perform-hybrid-azure-ad-join)
-- [Exercise 2: Manage Authentication, Authorization, and Access Control in Hybrid Scenarios](#exercise-2-manage-authentication-authorization-and-access-control-in-hybrid-scenarios)
-  - [Task 1: Create Active Directory groups](#task-1-create-active-directory-groups)
-  - [Task 2: Assign EMS E5 licenses to Azure AD users](#task-2-assign-ems-e5-licenses-to-azure-ad-users)
-  - [Task 3: Enable Azure AD Multi-Factor Authentication](#task-3-enable-azure-ad-multi-factor-authentication)
-  - [Task 4: Enable password writeback and Self-Service Password Reset](#task-4-enable-password-writeback-and-self-service-password-reset)
-  - [Task 5: Implement Azure AD Password Protection for Windows Server Active Directory](#task-5-implement-azure-ad-password-protection-for-windows-server-active-directory)
-  - [Task 6: Enable Azure Active Directory Identity Protection](#task-6-enable-azure-active-directory-identity-protection)
-  - [Task 7: Enable Automatic Intune Enrollment](#task-7-enable-automatic-intune-enrollment)
-  - [Task 8: Enable Enterprise-State-Roaming](#task-8-enable-enterprise-state-roaming)
-  - [Task 9: Implement Azure AD Conditional Access Policies](#task-9-implement-azure-ad-conditional-access-policies)
-  - [Task 10: Implement Azure AD Privileged Identity Management](#task-10-implement-azure-ad-privileged-identity-management)
-- [After the hands-on lab](#after-the-hands-on-lab)
-  - [Task 1: Delete resources](#task-1-delete-resources)
+- [Azure Fundementals: Identity Step - by - Step](#azure-fundementals-identity-step---by---step)
+  - [Abstract and learning objectives](#abstract-and-learning-objectives)
+  - [Overview](#overview)
+  - [Solution architecture](#solution-architecture)
+  - [Exercise 1: Integrate an Active Directory forest with an Azure Active Directory tenant](#exercise-1-integrate-an-active-directory-forest-with-an-azure-active-directory-tenant)
+    - [Task 1: Create an Azure Active Directory tenant and activate an EMS E5 trial](#task-1-create-an-azure-active-directory-tenant-and-activate-an-ems-e5-trial)
+    - [Task 2: Create and configure Azure AD users](#task-2-create-and-configure-azure-ad-users)
+    - [Task 3: Purchase a custom domain name  **OPTIONAL**](#task-3-purchase-a-custom-domain-name--optional)
+    - [Task 4: Assign a custom domain name to the Contoso Azure AD tenant **OPTIONAL**](#task-4-assign-a-custom-domain-name-to-the-contoso-azure-ad-tenant-optional)
+    - [Task 5: Configure DNS suffix in the Contoso Active Directory forest](#task-5-configure-dns-suffix-in-the-contoso-active-directory-forest)
+    - [Task 6: Install Azure AD Connect](#task-6-install-azure-ad-connect)
+    - [Task 7: Enable Active Directory Recycle Bin](#task-7-enable-active-directory-recycle-bin)
+    - [Task 8: Configure Azure AD Connect attribute-level filtering](#task-8-configure-azure-ad-connect-attribute-level-filtering)
+    - [Task 9: Initiate and verify directory synchronization](#task-9-initiate-and-verify-directory-synchronization)
+    - [Task 10: Configure Hybrid Azure AD join](#task-10-configure-hybrid-azure-ad-join)
+    - [Task 11: Perform Hybrid Azure AD join](#task-11-perform-hybrid-azure-ad-join)
+  - [Exercise 2: Manage Authentication, Authorization, and Access Control in Hybrid Scenarios](#exercise-2-manage-authentication-authorization-and-access-control-in-hybrid-scenarios)
+    - [Task 1: Create Active Directory groups](#task-1-create-active-directory-groups)
+    - [Task 2: Assign EMS E5 licenses to Azure AD users](#task-2-assign-ems-e5-licenses-to-azure-ad-users)
+    - [Task 3: Enable Azure AD Multi-Factor Authentication](#task-3-enable-azure-ad-multi-factor-authentication)
+    - [Task 4: Enable password writeback and Self-Service Password Reset](#task-4-enable-password-writeback-and-self-service-password-reset)
+    - [Task 5: Implement Azure AD Password Protection for Windows Server Active Directory **OPTIONAL**](#task-5-implement-azure-ad-password-protection-for-windows-server-active-directory-optional)
+    - [Task 6: Enable Azure Active Directory Identity Protection](#task-6-enable-azure-active-directory-identity-protection)
+    - [Task 7: Enable Automatic Intune Enrollment **OPTIONAL**](#task-7-enable-automatic-intune-enrollment-optional)
+    - [Task 8: Enable Enterprise-State-Roaming **OPTIONAL**](#task-8-enable-enterprise-state-roaming-optional)
+    - [Task 9: Implement Azure AD Conditional Access Policies](#task-9-implement-azure-ad-conditional-access-policies)
+    - [Task 10: Implement Azure AD Privileged Identity Management **OPTIONAL**](#task-10-implement-azure-ad-privileged-identity-management-optional)
+  - [After the hands-on lab](#after-the-hands-on-lab)
+    - [Task 1: Delete resources](#task-1-delete-resources)
 
 <!-- /TOC -->
 
@@ -947,7 +949,7 @@ In this task, you will enable password writeback and Self-Service Password Reset
 19. On the **Password reset** blade, select **On-premises integration** on the left and verify that the **Write back passwords to your on-premises directory** setting is set to **Yes**. Note that you have the option to **Allow users to unlock accounts without resetting their passwords**.
 
 
-### Task 5: Implement Azure AD Password Protection for Windows Server Active Directory
+### Task 5: Implement Azure AD Password Protection for Windows Server Active Directory **OPTIONAL**
 
 In this task, you will implement Azure AD password Protection for Windows Server Active Directory.
 
@@ -1076,7 +1078,7 @@ In this task, you will enable Azure AD Identity Protection
 
     ![In this screenshot, the 'Azure AD Identity Protection - User risk policy' blade of the Azure portal is depicted with the required settings and the Save button selected.](images/Hands-onlabstep-bystep-HybridIdentityImages/media/IdentityProtection_UserRiskPolicy.png "Set the user risk policy")
 
-### Task 7: Enable Automatic Intune Enrollment
+### Task 7: Enable Automatic Intune Enrollment **OPTIONAL**
 
 In this task, you will enable automatic enrollment of hybrid Azure AD devices into Intune. 
 
@@ -1095,7 +1097,7 @@ In this task, you will enable automatic enrollment of hybrid Azure AD devices in
 
     ![In this screenshot, the Configure blade of the Azure portal is depicted with the 'MDM user scope" setting set to all and the Save button selected.](images/Hands-onlabstep-bystep-HybridIdentityImages/media/SetMDMUserScope.png "Set MDM user scope on Configure blade")
 
-### Task 8: Enable Enterprise-State-Roaming
+### Task 8: Enable Enterprise-State-Roaming **OPTIONAL**
 
 1. Within the Remote Desktop session to **DC1**, in the Internet Explorer tab displaying the Azure portal, navigate to the blade of the Contoso Azure AD tenant.
 
@@ -1230,7 +1232,7 @@ In this task, you will implement Azure AD Conditional Access Policies.
 31. Re-run the evaluation but first change the **Sign-in risk** to **Low** and review the evaluation results.
 
 
-### Task 10: Implement Azure AD Privileged Identity Management
+### Task 10: Implement Azure AD Privileged Identity Management **OPTIONAL**
 
 In this task, you will implement Azure AD Privileged Identity Management.
 
