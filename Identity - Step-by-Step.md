@@ -19,7 +19,7 @@
     - [Task 8: Configure Azure AD Connect attribute-level filtering](#task-8-configure-azure-ad-connect-attribute-level-filtering)
     - [Task 9: Initiate and verify directory synchronization](#task-9-initiate-and-verify-directory-synchronization)
     - [Task 10: Configure Hybrid Azure AD join](#task-10-configure-hybrid-azure-ad-join)
-    - [Task 11: Perform Hybrid Azure AD join](#task-11-perform-hybrid-azure-ad-join)
+    - [Task 11: Perform Hybrid Azure AD join (OPTIONAL)](#task-11-perform-hybrid-azure-ad-join-optional)
   - [Exercise 2: Manage Authentication, Authorization, and Access Control in Hybrid Scenarios](#exercise-2-manage-authentication-authorization-and-access-control-in-hybrid-scenarios)
     - [Task 1: Create Active Directory groups](#task-1-create-active-directory-groups)
     - [Task 2: Assign EMS E5 licenses to Azure AD users](#task-2-assign-ems-e5-licenses-to-azure-ad-users)
@@ -667,7 +667,8 @@ In this task, you will configure Azure AD Connect device synchronization options
    > **Note**: For more information regarding configuring hybrid Azure Active Directory join for managed domains, refer to <https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-managed-domains#configure-hybrid-azure-ad-join>.
 
 
-### Task 11: Perform Hybrid Azure AD join
+### Task 11: Perform Hybrid Azure AD join (OPTIONAL)
+**THIS STEP IS OPTIONAL, ONLY PROCEED IF YOU CREATED A CUSTOM DOMAIN NAME**
 
 1. On the lab computer, in the Azure portal, verify that you are signed into the Azure AD tenant associated with the Azure subscription into which you deployed resources in the Before Hands-On Lab exercises (the **Default directory**). If not, select the **Directory + Subscription** icon in the toolbar of the Azure portal (to the right of the **Cloud Shell** icon) to switch to that Azure AD tenant. 
 
